@@ -18,6 +18,7 @@ Requires(postun): systemd
 %define _group System Environment/Daemons
 %endif
 
+
 %if 0%{?rhel} == 6
 Requires(pre): shadow-utils
 Requires: initscripts >= 8.36
