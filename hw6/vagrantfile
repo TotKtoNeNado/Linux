@@ -1,0 +1,52 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+home = ENV['HOME'] 
+MACHINES = {
+  :hw6 => {
+        :box_name => "centos/7",
+        :ip_addr => '192.168.11.101'
+  },
+}
+
+Vagrant.configure("2") do |config|
+
+  MACHINES.each do |boxname, boxconfig|
+
+      config.vm.define boxname do |box|
+
+          box.vm.box = boxconfig[:box_name]
+          box.vm.host_name = boxname.to_s
+
+          #box.vm.network "forwarded_port", guest: 80, host: 8000
+
+          box.vm.network "private_network", ip: boxconfig[:ip_addr]
+
+          config.vm.synced_folder "/Users/totktonado/Desktop/Git/Linux/Buffer/", "/vagrant", type: "virtualbox"
+
+          box.vm.provider :virtualbox do |vb|
+            vb.customize ["modifyvm", :id, "--memory", "1024"]
+          end
+
+          box.vm.provision "shell", inline: <<-SHELL
+             s.inline = 'mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh'
+
+          #yum install epel-release -y -q
+          #yum install nano fish wget -y -q
+# Install tools for building rpm
+           #yum install rpmdevtools rpm-build -y -q
+           #yum install tree yum-utils mc wget gcc vim git -y -q
+# Install tools for building woth mock and make prepares    
+           #yum install mock -y -q
+           #usermod -a -G mock root
+# Install tools for creating your own REPO
+           #yum install nginx -y -q
+          # yum install createrepo -y -q
+           SHELL
+
+          
+
+      end
+  end
+end
+
