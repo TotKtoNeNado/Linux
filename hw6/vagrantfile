@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
 
           #box.vm.network "forwarded_port", guest: 80, host: 8000
 
-          box.vm.network "private_network", ip: boxconfig[:ip_addr]
+          box.vm.network "public_network", bridge: "en2: Адаптер Apple USB Ethernet"
 
           config.vm.synced_folder "/Users/totktonado/Desktop/Git/Linux/Buffer/", "/vagrant", type: "virtualbox"
 
@@ -31,17 +31,14 @@ Vagrant.configure("2") do |config|
           box.vm.provision "shell", inline: <<-SHELL
              s.inline = 'mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh'
 
-          #yum install epel-release -y -q
-          #yum install nano fish wget -y -q
+          yum install epel-release -y -q
+          yum install nano fish redhat-lsb-core -y -q
 # Install tools for building rpm
-           #yum install rpmdevtools rpm-build -y -q
-           #yum install tree yum-utils mc wget gcc vim git -y -q
-# Install tools for building woth mock and make prepares    
-           #yum install mock -y -q
-           #usermod -a -G mock root
-# Install tools for creating your own REPO
-           #yum install nginx -y -q
-          # yum install createrepo -y -q
+           yum install rpmdevtools rpm-build -y -q
+           yum install tree yum-utils mc wget gcc vim  -y -q
+           yum install createrepo -y -q
+
+           
            SHELL
 
           
