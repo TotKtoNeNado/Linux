@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
           box.vm.provision "shell", inline: <<-SHELL
              s.inline = 'mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh'
 
-          yum install epel-release -y -q
+          yum install epel-release -y  -q
           yum install nano fish redhat-lsb-core -y -q
 # Install tools for building rpm
            yum install rpmdevtools rpm-build -y -q
