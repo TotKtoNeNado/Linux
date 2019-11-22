@@ -50,6 +50,7 @@ sudo systemctl start nginx
 sleep 25
 sudo systemctl status nginx
 
+
 #Добавим наш репозиторий в /etc/yum.repos.d
 sudo cp -f /home/builder/otus.repo /etc/yum.repos.d/
 
