@@ -20,7 +20,8 @@ Vagrant.configure("2") do |config|
 
           #box.vm.network "forwarded_port", guest: 80, host: 8000
 
-          box.vm.network "public_network", bridge: "en2: Адаптер Apple USB Ethernet"
+          box.vm.network "private_network", ip: boxconfig[:ip_addr]
+          #box.vm.network "public_network"
 
           config.vm.synced_folder "/Users/totktonado/Desktop/Git/Linux/Buffer/", "/vagrant", type: "virtualbox"
 
