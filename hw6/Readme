@@ -1,16 +1,17 @@
 ## Управление пакетами. Дистрибьюция софта. 
 
-1. Создать свой RPM пакет
 Будем собирать nginx, с библиотекой openssl-1.1.1d.
-
-Все необходимые инструменты для сборки пакетов поставились при создании VM - см. [Vagrantfile](https://github.com/TotKtoNeNado/Linux/blob/master/hw6/vagrantfile).
 
 В рекомендациях по сборке пакетов говорится, что сборка пакетов из-под `root` крайне опасная операция. Поэтому заведем пользователся `builder` из-под которого и будем собирать наш пакет и сразу переключимся в него.
 
 ```
-$ sudo useradd builder && passwd builder
-$ sudo usermod -aG builder builder
-$ sudo usermod -aG wheel builder
+$ sudo -i
+$ useradd builder && passwd builder
+$ usermod -aG builder builder
+$ usermod -aG wheel builder
 $ su builder
 ```
+Далее запускаем скрипт -  [Vagrantfile](https://github.com/TotKtoNeNado/Linux/blob/master/hw6/provision.sh).
+
+Как система попросит пароль от УЗ builder, вводим.
 
