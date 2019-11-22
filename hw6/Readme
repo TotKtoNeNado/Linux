@@ -11,7 +11,11 @@ $ usermod -aG builder builder
 $ usermod -aG wheel builder
 $ su builder
 ```
-Далее запускаем скрипт -  [Vagrantfile](https://github.com/TotKtoNeNado/Linux/blob/master/hw6/provision.sh).
 
-Как система попросит пароль от УЗ builder, вводим.
+Далее запускаем скрипт - [Vagrantfile](https://github.com/TotKtoNeNado/Linux/blob/master/hw6/provision.sh).
 
+```
+$ bash provision.sh
+```
+
+Как система попросит пароль от УЗ builder, вводим его.
