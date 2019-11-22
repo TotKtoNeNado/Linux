@@ -45,9 +45,7 @@ sudo sed '/index.htm;/i autoindex on; ' /etc/nginx/conf.d/default.conf
 #Проверяем конфигурацию и стартуем
 sudo nginx -t
 sudo systemctl start nginx
-sleep 25
-sudo systemctl start nginx
-sleep 25
+sllep 5
 sudo systemctl status nginx
 
 #Добавим наш репозиторий в /etc/yum.repos.d
