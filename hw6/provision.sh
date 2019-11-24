@@ -44,9 +44,8 @@ sudo sed -i '/index.htm;/i autoindex on; ' /etc/nginx/conf.d/default.conf
 
 #Проверяем конфигурацию и стартуем
 sudo nginx -t
-sudo restorecon -R -v /var/run/nginx.pid
+sudo restorecon -R -v /var/run/nginx.pid 
 sudo systemctl start nginx
-sleep 5
 systemctl status nginx
 
 
