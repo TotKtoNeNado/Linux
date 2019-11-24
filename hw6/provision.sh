@@ -40,15 +40,14 @@ sudo wget http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-
 sudo createrepo /usr/share/nginx/html/repo/
 
 #Включаем в nginx листинг дириктории
-sudo sed '/index.htm;/i autoindex on; ' /etc/nginx/conf.d/default.conf 
+sudo sed -i '/index.htm;/i autoindex on; ' /etc/nginx/conf.d/default.conf 
 
 #Проверяем конфигурацию и стартуем
 sudo nginx -t
+sudo restorecon -R -v /var/run/nginx.pid
 sudo systemctl start nginx
-sleep 25
-sudo systemctl start nginx
-sleep 25
-sudo systemctl status nginx
+sleep 5
+systemctl status nginx
 
 
 #Добавим наш репозиторий в /etc/yum.repos.d
