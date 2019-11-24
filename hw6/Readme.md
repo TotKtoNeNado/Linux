@@ -12,7 +12,7 @@ $ usermod -aG wheel builder
 $ su builder
 ```
 
-Далее запускаем скрипт - [Vagrantfile](https://github.com/TotKtoNeNado/Linux/blob/master/hw6/provision.sh).
+Далее запускаем скрипт - [provision.sh](https://github.com/TotKtoNeNado/Linux/blob/master/hw6/provision.sh).
 
 ```
 $ bash provision.sh
