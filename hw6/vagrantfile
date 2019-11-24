@@ -29,18 +29,15 @@ Vagrant.configure("2") do |config|
             vb.customize ["modifyvm", :id, "--memory", "1024"]
           end
 
-          box.vm.provision "shell", inline: <<-SHELL
-             s.inline = 'mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh'
-
-          yum install epel-release -y  -q
+box.vm.provision "shell", inline: <<-SHELL
+          mkdir -p ~root/.ssh
+          cp ~vagrant/.ssh/auth* ~root/.ssh
+          yum install epel-release -y -q
           yum install nano redhat-lsb-core -y -q
-# Install tools for building rpm
-           yum install rpmdevtools rpm-build -y -q
-           yum install tree yum-utils mc wget gcc vim  -y -q
-           yum install createrepo -y -q
-
-           
-           SHELL
+          yum install rpmdevtools rpm-build -y -q
+          yum install tree yum-utils mc wget gcc vim  -y -q
+          yum install createrepo -y -q
+          SHELL
 
           
           
