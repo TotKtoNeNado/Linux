@@ -3,7 +3,7 @@
 
 home = ENV['HOME'] 
 MACHINES = {
-  :hw6 => {
+  :hw7 => {
         :box_name => "centos/7",
         :ip_addr => '192.168.11.101'
   },
@@ -23,24 +23,19 @@ Vagrant.configure("2") do |config|
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
           #box.vm.network "public_network"
 
-          config.vm.synced_folder "/Users/totktonado/Desktop/Git/Linux/Buffer/", "/vagrant", type: "virtualbox"
+         #config.vm.synced_folder "/Users/totktonado/Desktop/Git/Linux/Buffer/", "/vagrant", type: "virtualbox"
 
           box.vm.provider :virtualbox do |vb|
             vb.customize ["modifyvm", :id, "--memory", "1024"]
           end
 
+
           box.vm.provision "shell", inline: <<-SHELL
-             s.inline = 'mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh'
-
-          yum install epel-release -y  -q
+          mkdir -p ~root/.ssh
+          cp ~vagrant/.ssh/auth* ~root/.ssh
+          yum install epel-release -y -q
           yum install tree yum-utils mc wget gcc vim  -y -q
-
-
-           
-           SHELL
-
-          
-          
+          SHELL
 
       end
   end
