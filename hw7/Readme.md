@@ -1,6 +1,8 @@
 ## Загрузка Linux. 
 
-### 1.Попасть в систему без пароля несколькими способами
+Данную лабараторную работу выполнял с виртуалки не из Vagranta (почемуто не работали способы входа без пароля) а ручками поставленной из iso.
+
+### 1.Попасть в систему без пароля несколькими способами 
 
 Вход в систему без пароля можно осуществить меняя конфигурацию файлов загрузчика, добавляя или изменяя ряд параметров. 
 
@@ -30,7 +32,7 @@ $ touch /.autorelabel
 В данном случае, указан хук `pre-mount` - "перед монированием файловой системы".
 
 ```
-$ mount -o remount,rw /sysroot
+$ mount -rw /dev/mapper/centos-root /sysroot
 $ chroot /sysroot
 $ passwd root
 $ touch /.autorelabel
@@ -48,3 +50,25 @@ $ chroot /sysroot
 $ passwd root
 $ touch /.autorelabel
 ```
+
+
+### 2. Установить систему с LVM, после чего переименовать VG
+
+
+```
+[root@hw7 ~]# vgs
+  VG  #PV #LV #SN Attr   VSize  VFree
+  `sup`   1   1   0 wz--n- <20,00g   0
+```
+
+Далее запускаем скрипт - [task2.sh](https://github.com/TotKtoNeNado/Linux/blob/master/hw7/task2.sh).
+
+```
+[root@hw7 ~]# vgs
+  VG  #PV #LV #SN Attr   VSize  VFree
+  `VG01`  1   1   0 wz--n- <20,00g   0
+```
+
+### 3. Добавить модуль в initrd
+
+Запускаем скрипт - [task3.sh](https://github.com/TotKtoNeNado/Linux/blob/master/hw7/task3.sh).
