@@ -58,7 +58,7 @@ $ touch /.autorelabel
 ```
 [root@hw7 ~]# vgs
   VG  #PV #LV #SN Attr   VSize  VFree
-  `sup`   1   1   0 wz--n- <20,00g   0
+  sup   1   1   0 wz--n- <20,00g   0
 ```
 
 Далее запускаем скрипт - [task2.sh](https://github.com/TotKtoNeNado/Linux/blob/master/hw7/task2.sh).
@@ -66,7 +66,7 @@ $ touch /.autorelabel
 ```
 [root@hw7 ~]# vgs
   VG  #PV #LV #SN Attr   VSize  VFree
-  `VG01`  1   1   0 wz--n- <20,00g   0
+  VG01  1   1   0 wz--n- <20,00g   0
 ```
 
 ### 3. Добавить модуль в initrd
