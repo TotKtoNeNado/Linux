@@ -3,18 +3,10 @@
 
 home = ENV['HOME'] 
 MACHINES = {
-  :hw7 => {
-        	:box_name => "centos/7",
-        	:box_version => "1804.02",
-        	:ip_addr => '192.168.11.112',
-          :disks => {
-		        :sata1 => {
-		      	:dfile =>'home/sata1.vdi',
-		      	:size => 2048,
-		      	:port => 1
-      },
+  :hw8 => {
+        :box_name => "centos/7",
+        :ip_addr => '192.168.11.101'
   },
-}
 }
 
 Vagrant.configure("2") do |config|
@@ -31,36 +23,22 @@ Vagrant.configure("2") do |config|
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
           #box.vm.network "public_network"
 
-         config.vm.synced_folder "/Users/totktonado/Desktop/Git/Linux/Buffer/", "/vagrant", type: "virtualbox"
+          #config.vm.synced_folder "/Users/totktonado/Desktop/Git/Linux/Buffer/", "/vagrant", type: "virtualbox"  
+
 
           box.vm.provider :virtualbox do |vb|
             vb.customize ["modifyvm", :id, "--memory", "1024"]
-           
-            needsController = false
-		        boxconfig[:disks].each do |dname, dconf|
-			      unless File.exist?(dconf[:dfile])
-				    vb.customize ['createhd', '--filename', dconf[:dfile], '--variant', 'Fixed', '--size', dconf[:size]]
-            needsController =  true
-                          end
-
-		                end
-                  if needsController == true
-                     vb.customize ["storagectl", :id, "--name", "SATA", "--add", "sata" ]
-                     boxconfig[:disks].each do |dname, dconf|
-                         vb.customize ['storageattach', :id,  '--storagectl', 'SATA', '--port', dconf[:port], '--device', 0, '--type', 'hdd', '--medium', dconf[:dfile]]
-                     end
-                  end
           end
 
-
-          box.vm.provision "shell", inline: <<-SHELL
+box.vm.provision "shell", inline: <<-SHELL
           mkdir -p ~root/.ssh
           cp ~vagrant/.ssh/auth* ~root/.ssh
           yum install epel-release -y -q
-          yum install tree yum-utils mc wget gcc vim  -y -q
-          yum install mdadm smartmontools hdparm gdisk  -y -q
-
+          yum install tree yum-utils mc wget gcc vim nano -y -q
           SHELL
+
+          
+          
 
       end
   end

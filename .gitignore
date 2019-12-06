@@ -9,3 +9,16 @@ hw7/.vagrant/machines/hw7/virtualbox/private_key
 hw7/.vagrant/machines/hw7/virtualbox/synced_folders
 hw7/.vagrant/machines/hw7/virtualbox/vagrant_cwd
 hw7/.vagrant/rgloader/loader.rb
+hw6/.vagrant/rgloader/loader.rb
+hw8/.vagrant/rgloader/loader.rb
+hw8/.vagrant/machines/hw8/virtualbox/vagrant_cwd
+hw8/.vagrant/machines/hw8/virtualbox/synced_folders
+hw8/.vagrant/machines/hw8/virtualbox/private_key
+hw8/.vagrant/machines/hw8/virtualbox/index_uuid
+hw8/.vagrant/machines/hw8/virtualbox/id
+hw8/.vagrant/machines/hw8/virtualbox/creator_uid
+hw8/.vagrant/machines/hw8/virtualbox/box_meta
+hw8/.vagrant/machines/hw8/virtualbox/action_set_name
+hw8/.vagrant/machines/hw8/virtualbox/action_provision
+Buffer/test.sh
+Buffer/module_setup.sh
