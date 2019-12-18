@@ -1,0 +1,10 @@
+#Указаны параметры Oneshot сервиса для скрипт-монитора monlog.service
+#Файл разместить в /etc/systemd/system
+
+[Unit]
+Description=My Log Monitor
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/sysconfig/monlog
+ExecStart=/opt/monlog.sh $WORD $LOG

@@ -22,3 +22,9 @@ hw8/.vagrant/machines/hw8/virtualbox/action_set_name
 hw8/.vagrant/machines/hw8/virtualbox/action_provision
 Buffer/test.sh
 Buffer/module_setup.sh
+Buffer/.DS_Store
+Buffer/monlog
+Buffer/monlog.log
+Buffer/monlog.service
+Buffer/monlog.sh
+Buffer/monlog.timer

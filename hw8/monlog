@@ -1,0 +1,6 @@
+# Здесь указаны переменные для сервиса скрипта-монитора logmon.service
+# Этот файл лежит в /etc/sysconfig
+
+
+LOG=/var/log/monlog.log
+WORD="alarm"

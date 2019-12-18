@@ -1,0 +1,13 @@
+# Здесь указаны параметры сервиса-таймера скрипта-монитора monlog.service
+# Этот файл отправится в /etc/systemd/system
+#
+[Unit]
+Description=Run LogMon every 30 sec
+
+[Timer]
+#Run every 30 second
+OnUnitActiveSec=30
+Unit=monlog.service
+
+[Install]
+WantedBy=multi-user.target
